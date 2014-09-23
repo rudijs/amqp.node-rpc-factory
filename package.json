@@ -1,0 +1,28 @@
+{
+  "name": "amqp-rpc-factory",
+  "version": "0.0.1",
+  "description": "AMQP RPC Consumer and Producer Factory",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "NODE_ENV=test node_modules/mocha/bin/_mocha -R spec test/*.spec.js",
+    "test-coverage": "NODE_ENV=test node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -x '*.spec.js' --root lib/ --dir test/coverage  -- 'test/*.spec.js'"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "amqplib": "^0.2.1",
+    "lodash": "^2.4.1",
+    "q": "^1.0.1",
+    "uuid": "^1.4.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "gulp": "^3.8.8",
+    "gulp-jshint": "^1.8.4",
+    "gulp-task-listing": "^0.3.0",
+    "istanbul": "^0.3.2",
+    "mocha": "^1.21.4",
+    "sinon": "^1.10.3"
+  }
+}

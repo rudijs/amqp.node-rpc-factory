@@ -1,0 +1,7 @@
+.git/
+.gitignore
+.jshintrc
+.idea/
+node_modules/
+test/
+examples/
