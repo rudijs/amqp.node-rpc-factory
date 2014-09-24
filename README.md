@@ -5,6 +5,10 @@ AMQP RPC Consumer and Publisher Factory
 
 *Not yet ready for NPM publishing*
 
+## Usage
+
+
+
 *Consumer*
 Reconnects after disconnect
 

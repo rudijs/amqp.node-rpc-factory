@@ -9,7 +9,7 @@
  *
  */
 
-var rpcClientFactory = require('../lib/rpc-publisher-factory');
+var rpcClientFactory = require('../../lib/rpc-publisher-factory');
 
 var client = rpcClientFactory.create({
   standalone: true,
@@ -18,8 +18,8 @@ var client = rpcClientFactory.create({
 
 client.publish('message in a bottle')
   .then(function publishSuccess(res) {
-    console.log('publishSuccess', res);
+    console.log(res);
   })
-  .catch(function publishError() {
-    console.log('error', arguments);
+  .catch(function publishError(err) {
+    console.log(err);
   });

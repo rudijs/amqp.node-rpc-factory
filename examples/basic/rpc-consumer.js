@@ -13,6 +13,6 @@ var consumerOptions = {
   url: process.env.RABBITMQ_URL || 'localhost'
 };
 
-var consumer = require('../lib/rpc-consumer-factory').create(consumerOptions);
+var consumer = require('../../lib/rpc-consumer-factory').create(consumerOptions);
 
 consumer.run();
