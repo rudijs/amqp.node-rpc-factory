@@ -17,8 +17,8 @@ var client = rpcClientFactory.create({
 });
 
 client.publish('message in a bottle')
-  .then(function publishSuccess() {
-    console.log('sendMessageSuccess', arguments);
+  .then(function publishSuccess(res) {
+    console.log('publishSuccess', res);
   })
   .catch(function publishError() {
     console.log('error', arguments);
