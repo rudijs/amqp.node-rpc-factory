@@ -10,7 +10,8 @@
   var jsLintFiles = [
     'gulpfile.js',
     'lib/*.js',
-    'test/*.js'
+    'test/*.js',
+    'examples/**/*.js'
   ];
 
   gulp.task('default', taskListing);

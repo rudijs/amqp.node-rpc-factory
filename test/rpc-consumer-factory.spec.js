@@ -67,11 +67,9 @@ describe('RPC Consumer', function () {
       // Set up a consumer with custom loggers that call test spys
       var consumer = rpcConsumerFactory.create({
         logInfo: function (msg) {
-          //console.log('logInfo', msg);
           spies.logInfo(msg);
         },
         logError: function (msg) {
-          //console.log('logError', msg);
           spies.logError(msg);
         }
       });
@@ -187,7 +185,6 @@ describe('RPC Consumer', function () {
 
     afterEach(function (done) {
       sinon.assert.called(onErrorSpy);
-      //sinon.assert.calledWith(onErrorSpy, 'Connection Error Retry');
       done();
     });
 
