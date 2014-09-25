@@ -77,7 +77,7 @@ describe('RPC Client', function () {
 
       consume: function (queue, callback, options) {
         queue.should.equal(uniqueAmqpPrivateReplyQueue);
-        callback.name.should.equal('maybeAnswer');
+        (typeof callback).should.equal('function');
         options.noAck.should.be.true;
 
         // This is the reply from the consumer
@@ -101,7 +101,7 @@ describe('RPC Client', function () {
         should.exist(options.correlationId);
         options.replyTo.should.equal(uniqueAmqpPrivateReplyQueue);
 
-        // Store the correlationID, used in the reply maybeAnswer function
+        // Store the correlationID, used in the reply MaybeAnswer function
         correlationId = options.correlationId;
       }
 
@@ -156,7 +156,7 @@ describe('RPC Client', function () {
 
       consume: function (queue, callback, options) {
         queue.should.equal(uniqueAmqpPrivateReplyQueue);
-        callback.name.should.equal('maybeAnswer');
+        (typeof callback).should.equal('function');
         options.noAck.should.be.true;
 
         // This is the reply from the consumer
@@ -257,7 +257,7 @@ describe('RPC Client', function () {
 
       consume: function (queue, callback, options) {
         queue.should.equal(uniqueAmqpPrivateReplyQueue);
-        callback.name.should.equal('maybeAnswer');
+        (typeof callback).should.equal('function');
         options.noAck.should.be.true;
 
         // Timeout the consume() wait for reply
