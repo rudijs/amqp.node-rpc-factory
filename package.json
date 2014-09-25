@@ -23,6 +23,8 @@
     "gulp-jshint": "^1.8.4",
     "gulp-task-listing": "^0.3.0",
     "istanbul": "^0.3.2",
+    "koa": "^0.12.1",
+    "koa-router": "^3.4.0",
     "mocha": "^1.21.4",
     "sinon": "^1.10.3"
   }
