@@ -28,6 +28,7 @@ Default behavior is:
 
 - Connect to localhost.
 - Exit immediately if it cannot connect.
+- The 'standalone' option is required so the connection will be closed, else the command line will hang on the open connection.
 - Send messages to the 'node_rpc_queue' queue.
 - Promise resolves on correct RPC response.
 - Promise rejects on incorrect RPC response (mismatched correlationId).
