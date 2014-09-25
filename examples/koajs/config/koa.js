@@ -9,12 +9,10 @@ module.exports = function (app) {
 
   app.get('/api/upcase/:text', function *() {
     try {
-      var members = yield controller.upcase(this.params.text);
-      this.body = members;
+      var text = yield controller.upcase(this.params.text);
+      this.body = text;
     }
     catch (e) {
-      //console.log(e);
-      this.status = e.status;
       this.body = e;
     }
   });

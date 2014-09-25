@@ -1,13 +1,11 @@
 'use strict';
 
-var rpcPublisherFactory = require('./rpc-publisher-factory');
-
+var rpcPublisherFactory = require('../../../lib/rpc-publisher-factory');
 var publisher = null;
 
 if (!publisher) {
   publisher = rpcPublisherFactory.create({
-    url: 'rsm_user:abcdef@rmq01.dev.loc.ridesharemarket.com/rsm',
-    queue: 'rsm_rpc_queue'
+    url: process.env.RABBITMQ_URL || 'localhost'
   });
 }
 
@@ -25,23 +23,23 @@ if (!publisher) {
 
 // http://www.squaremobius.net/amqp.node/doc/channel_api.html
 
-process.on('uncaughtException', function (err) {
-
-  // Look for amqp in the exception message
-  var pattern = /amqplib\/lib\/connection\.js/g;
-
-  if (pattern.test(err.stack)) {
-
-    //logger.error('Caught uncaughtException Node process exception: ' + err.stack);
-    console.log('Caught amqplib exception: ' + err.stack);
-
-    publisher.connection = null;
-  }
-  else {
-    // rethrow the error, crash the node process (upstart will restart)
-    throw new Error(err.stack);
-  }
-
-});
+//process.on('uncaughtException', function (err) {
+//
+//  // Look for amqp in the exception message
+//  var pattern = /amqplib\/lib\/connection\.js/g;
+//
+//  if (pattern.test(err.stack)) {
+//
+//    //logger.error('Caught uncaughtException Node process exception: ' + err.stack);
+//    console.log('Caught amqplib exception: ' + err.stack);
+//
+//    publisher.connection = null;
+//  }
+//  else {
+//    // rethrow the error, crash the node process (upstart will restart)
+//    throw new Error(err.stack);
+//  }
+//
+//});
 
 module.exports = publisher;

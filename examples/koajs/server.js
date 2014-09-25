@@ -5,11 +5,9 @@ var koa = require('koa'),
 
 // Setup the RabbitMQ RPC publisher
 // This will use one TCP connection for the application to share, many channels can be created and used
-//require('./rpc-publisher');
+require('./lib/rpc-publisher');
 
-app.use(function *(next){
-  this.body = 'Hello World';
-  yield next;
-});
+// Configure the KoaJS app middleswares
+require('./config/koa')(app);
 
 app.listen(3000);
