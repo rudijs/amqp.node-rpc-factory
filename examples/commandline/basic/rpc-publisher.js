@@ -9,7 +9,7 @@
  *
  */
 
-var rpcClientFactory = require('../../lib/rpc-publisher-factory');
+var rpcClientFactory = require('../../../lib/rpc-publisher-factory');
 
 var client = rpcClientFactory.create({
   standalone: true,

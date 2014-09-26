@@ -9,8 +9,8 @@
  *
  */
 
-var log = require('../advanced/log'),
-  processRequest = require('./processRequest');
+var log = require('./log'),
+  processMessage = require('./processMessage');
 
 var consumerOptions = {
   url: process.env.RABBITMQ_URL || 'localhost',
@@ -18,11 +18,11 @@ var consumerOptions = {
     log.info(msg);
   },
   logError: function(msg) {
-    log.warn(msg);
+    log.error(msg);
   },
-  processMessage: processRequest.jsonRpc
+  processMessage: processMessage
 };
 
-var consumer = require('../../lib/rpc-consumer-factory').create(consumerOptions);
+var consumer = require('../../../lib/rpc-consumer-factory').create(consumerOptions);
 
 consumer.run();

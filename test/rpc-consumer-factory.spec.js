@@ -51,7 +51,7 @@ describe('RPC Consumer', function () {
     afterEach(function (done) {
       sinon.assert.calledOnce(spies.logError);
       sinon.assert.calledOnce(spies.logInfo);
-      sinon.assert.calledWith(spies.logInfo, 'Reconnecting');
+      sinon.assert.calledWithMatch(spies.logInfo, /Reconnecting/);
       sinon.assert.calledOnce(spies.reconnect);
       done();
     });
