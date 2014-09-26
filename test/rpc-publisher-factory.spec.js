@@ -3,7 +3,9 @@
 var should = require('chai').should(),
   amqp = require('amqplib'),
   q = require('q'),
-  sinon = require('sinon');
+  sinon = require('sinon'),
+  domain = require('domain'),
+  EventEmitter = require('events').EventEmitter;
 
 var env = process.env,
   rpcPublisherFactory = require('../lib/rpc-publisher-factory');
@@ -43,7 +45,33 @@ describe('RPC Client', function () {
     done();
   });
 
-  it('should handle connection failure', function (done) {
+  it('should handle emitted AMQP connection errors', function(done) {
+
+    var spy = sinon.spy();
+
+    sinon.stub(domain, 'create', function() {
+      return new EventEmitter();
+    });
+
+    var publisher = rpcPublisherFactory.create({
+      debugLevel: 2,
+      logError: spy
+    });
+
+    publisher.currentConnection = {mock: 'amqp connection object'};
+
+    publisher.publisherDomain.emit('error', new Error('Stubbed unexpected AMQP connection error'));
+
+    sinon.assert.calledOnce(spy);
+    sinon.assert.calledWithMatch(spy, /Stubbed\ unexpected\ AMQP\ connection\ error/);
+
+    domain.create.restore();
+
+    done();
+
+  });
+
+  it('should handle initial connection failure', function (done) {
 
     sinon.stub(amqp, 'connect', function () {
       var deferred = q.defer();
@@ -230,24 +258,6 @@ describe('RPC Client', function () {
 
     var clock = sinon.useFakeTimers();
 
-    var createChannelStub = {
-      createChannel: function () {
-        return {
-          then: function (createChannelSuccess) {
-            return createChannelSuccess(channelStub);
-          }
-        };
-      },
-
-      close: sinon.spy()
-    };
-
-    var connectStub = {
-      then: function (getConnectionSuccess) {
-        return getConnectionSuccess(createChannelStub);
-      }
-    };
-
     var channelStub = {
       assertQueue: function () {
         return {
@@ -278,10 +288,28 @@ describe('RPC Client', function () {
 
     };
 
+    var createChannelStub = {
+      createChannel: function () {
+        return {
+          then: function (createChannelSuccess) {
+            return createChannelSuccess(channelStub);
+          }
+        };
+      },
+
+      close: sinon.spy()
+    };
+
+    var connectStub = {
+      then: function (getConnectionSuccess) {
+        return getConnectionSuccess(createChannelStub);
+      }
+    };
+
     sinon.stub(amqp, 'connect').returns(connectStub);
 
     var publisher = rpcPublisherFactory.create({
-      debugLevel: 1
+      debugLevel: 2
     });
 
     publisher.standalone.should.be.false;
