@@ -204,6 +204,8 @@ describe('RPC Client', function () {
       standalone: true
     });
 
+    publisher.standalone.should.be.true;
+
     var spy = sinon.spy(publisher, 'logError');
 
     publisher.publish(messageSent)
@@ -224,7 +226,7 @@ describe('RPC Client', function () {
 
   });
 
-  it('should timeout if no response after 3000ms', function (done) {
+  it('should timeout if no response after 3000ms and close channel in non-standalone mode', function (done) {
 
     var clock = sinon.useFakeTimers();
 
@@ -236,6 +238,7 @@ describe('RPC Client', function () {
           }
         };
       },
+
       close: sinon.spy()
     };
 
@@ -269,16 +272,19 @@ describe('RPC Client', function () {
         replyTo.should.equal('node_rpc_queue');
         content.toString().should.equal(messageSent);
         options.replyTo.should.equal(uniqueAmqpPrivateReplyQueue);
-      }
+      },
+
+      close: sinon.spy()
 
     };
 
     sinon.stub(amqp, 'connect').returns(connectStub);
 
     var publisher = rpcPublisherFactory.create({
-      debugLevel: 2,
-      standalone: true
+      debugLevel: 1
     });
+
+    publisher.standalone.should.be.false;
 
     var spy = sinon.spy(publisher, 'logError');
 
@@ -293,7 +299,7 @@ describe('RPC Client', function () {
         sinon.assert.calledOnce(spy);
         sinon.assert.calledWithMatch(spy, /RPC\ Reply\ Timeout/);
 
-        sinon.assert.calledOnce(createChannelStub.close);
+        sinon.assert.calledOnce(channelStub.close);
 
         clock.restore();
 
