@@ -197,11 +197,10 @@ describe('RPC Consumer', function () {
           callback(new Error('Connection Error Retry'));
         },
         createChannel: function () {
-          var ctx = this;
           return {
             then: function () {
-              ctx.on('error', onErrorSpy);
-            }
+              this.on('error', onErrorSpy);
+            }.bind(this)
           };
         }
       };
