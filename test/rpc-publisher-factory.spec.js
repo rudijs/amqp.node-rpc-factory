@@ -170,7 +170,7 @@ describe('RPC Client', function () {
 
   });
 
-  it('should handle mismatched reply correctionId number', function (done) {
+  it('should handle mismatched reply correlationId property', function (done) {
 
     var channelStub = {
       assertQueue: function () {
