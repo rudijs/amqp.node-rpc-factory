@@ -9,7 +9,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Run 'gulp help' for task list\" && exit 0",
-    "coveralls": "TEST_QUIET=true NODE_ENV=test node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -x '*.spec.js' --root lib/ --dir test/coverage  -- 'test/*.spec.js'  && cat ./test/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "NODE_ENV=test node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -x '*.spec.js' --root lib/ --dir test/coverage  -- 'test/*.spec.js'  && cat ./test/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "author": {
     "name": "Rudi Starcevic",
