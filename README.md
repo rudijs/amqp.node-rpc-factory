@@ -16,7 +16,7 @@ Code review, suggestions and pull requests very much welcome - thanks!
 
 - Built on top of the fantastic [amqplib](https://github.com/squaremo/amqp.node) library
 - My faithful coding pair partners:
-- [mocha[(http://visionmedia.github.io/mocha/)
+- [mocha](http://visionmedia.github.io/mocha/)
 - [sinon.js](http://sinonjs.org/)
 - [gulpjs](http://gulpjs.com/)
 - [istanbul-js](http://gotwarlost.github.io/istanbul/)
