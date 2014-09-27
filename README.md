@@ -5,6 +5,11 @@ Nodejs AMQP RPC Consumer and Publisher Factory
 
 The consumer and publisher make pervasive use of Javascript Promises.
 
+[![Build Status](https://travis-ci.org/rudijs/amqp.node-rpc-factory.svg?branch=master)](https://travis-ci.org/rudijs/amqp.node-rpc-factory)
+[![Coverage Status](https://coveralls.io/repos/rudijs/amqp.node-rpc-factory/badge.png?branch=master)](https://coveralls.io/r/rudijs/amqp.node-rpc-factory?branch=master)
+[![NPM version](https://badge.fury.io/js/amqp.node-rpc-factory.svg)](http://badge.fury.io/js/amqp.node-rpc-factory)
+[![Dependency Status](https://gemnasium.com/rudijs/amqp.node-rpc-factory.svg)](https://gemnasium.com/rudijs/amqp.node-rpc-factory)
+
 Code review, suggestions and pull requests very much welcome - thanks!
 
 ## Credits
@@ -33,7 +38,7 @@ Here's an image from the RabbitMQ website giving an overview of the RPC messagin
 
 In this context NodeJS is the blue circles, in between the NodeJS is TCP networking and the RabbitMQ server.
 
-[![RPC Overview](docs/images/python-six.png)](https://www.rabbitmq.com/tutorials/tutorial-six-python.html)
+![RPC Overview](docs/images/python-six.png)
 
 ## Features
 
