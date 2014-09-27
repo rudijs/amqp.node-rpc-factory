@@ -15,6 +15,12 @@
     "name": "Rudi Starcevic",
     "email": "ooly.me@gmail.com"
   },
+  "keywords": [
+    "AMQP",
+    "AMQP 0-9-1",
+    "RabbitMQ",
+    "RPC"
+  ],
   "license": "MIT",
   "dependencies": {
     "amqplib": "^0.2.1",
