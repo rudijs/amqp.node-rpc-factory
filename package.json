@@ -1,6 +1,6 @@
 {
   "name": "amqp-rpc-factory",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Nodejs AMQP RPC Consumer and Publisher Factory",
   "repository": {
     "type": "git",
