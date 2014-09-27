@@ -1,0 +1,44 @@
+{
+  "name": "amqp-rpc-factory",
+  "version": "0.0.1",
+  "description": "Nodejs AMQP RPC Consumer and Publisher Factory",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rudijs/amqp.node-rpc-factory.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Run 'gulp help' for task list\" && exit 0",
+    "coveralls": "TEST_QUIET=true NODE_ENV=test node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -x '*.spec.js' --root lib/ --dir test/coverage  -- 'test/*.spec.js'"
+  },
+  "author": {
+    "name": "Rudi Starcevic",
+    "email": "ooly.me@gmail.com"
+  },
+  "keywords": [
+    "AMQP",
+    "AMQP 0-9-1",
+    "RabbitMQ",
+    "RPC"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "amqplib": "^0.2.1",
+    "lodash": "^2.4.1",
+    "q": "^1.0.1",
+    "uuid": "^1.4.1"
+  },
+  "devDependencies": {
+    "bunyan": "^1.1.0",
+    "chai": "^1.9.1",
+    "express": "^4.9.5",
+    "gulp": "^3.8.8",
+    "gulp-jshint": "^1.8.4",
+    "gulp-task-listing": "^0.3.0",
+    "istanbul": "^0.3.2",
+    "koa": "^0.12.1",
+    "koa-router": "^3.4.0",
+    "mocha": "^1.21.4",
+    "sinon": "^1.10.3"
+  }
+}
