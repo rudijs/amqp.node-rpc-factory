@@ -10,7 +10,7 @@
  */
 
 var log = require('./log'),
-  processMessage = require('./processMessage');
+  processMessage = require('./process-message');
 
 var consumerOptions = {
   url: process.env.RABBITMQ_URL || 'localhost',
@@ -23,6 +23,17 @@ var consumerOptions = {
   processMessage: processMessage
 };
 
-var consumer = require('../../../lib/rpc-consumer-factory').create(consumerOptions);
+var consumer;
 
-consumer.run();
+/**
+ * Option 1 - Single line
+ */
+consumer = require('../../../.').consumer.create(consumerOptions).run();
+
+/**
+ * Option 2- Multi line
+ */
+
+//var rpcConsumerFactory = require('../../../.').consumer;
+//consumer = rpcConsumerFactory.create(consumerOptions);
+//consumer.run();

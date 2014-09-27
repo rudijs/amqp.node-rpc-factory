@@ -9,22 +9,40 @@
  *
  */
 
-var rpcClientFactory = require('../../../lib/rpc-publisher-factory'),
-  log = require('./log');
+var log = require('./log');
 
-var client = rpcClientFactory.create({
+var publisherOptions = {
   standalone: true,
+
   debugLevel: 2,
+
   replyTimeOutInterval: 10000,
+
   url: process.env.RABBITMQ_URL || 'localhost',
-  logInfo: function(msg) {
+
+  logInfo: function (msg) {
     log.info(msg);
   },
-  logError: function(msg) {
-    log.warn(msg);
-  }
-});
 
+  logError: function (msg) {
+    log.error(msg);
+  }
+};
+
+/**
+ * Option 1 - Single line
+ */
+
+var client = require('../../../.').publisher.create(publisherOptions);
+
+/**
+ * Option 2 - Multi line
+ */
+
+//var rpcClientFactory = require('../../../.').publisher;
+//var client = rpcClientFactory.create(publisherOptions);
+
+// Do RPC
 client.publish('message in a bottle')
   .then(function publishSuccess(res) {
     console.log('Success:', res);

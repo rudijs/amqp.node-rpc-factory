@@ -30,10 +30,12 @@ var client = require('../../../.').publisher.create(publisherOptions);
 //var rpcClientFactory = require('../../../.').publisher;
 //var client = rpcClientFactory.create(publisherOptions);
 
+
+// Do RPC
 client.publish('message in a bottle')
   .then(function publishSuccess(res) {
-    console.log(res);
+    console.log('Success:', res);
   })
   .catch(function publishError(err) {
-    console.log(err);
+    console.log('Error:', err);
   });
