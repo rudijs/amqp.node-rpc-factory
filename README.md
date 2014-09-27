@@ -38,7 +38,7 @@ Here's an image from the RabbitMQ website giving an overview of the RPC messagin
 
 In this context NodeJS is the blue circles, in between the NodeJS is TCP networking and the RabbitMQ server.
 
-![RPC Overview](docs/images/python-six.png)
+![RPC Overview](docs/python-six.png)
 
 ## Features
 
