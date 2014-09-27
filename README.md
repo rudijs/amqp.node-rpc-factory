@@ -5,18 +5,47 @@ Nodejs AMQP RPC Consumer and Publisher Factory
 
 The consumer and publisher make pervasive use of Javascript Promises.
 
+Code review, suggestions and pull requests very much welcome - thanks!
+
+## Credits
+
+- Built on top of the fantastic [amqplib](https://github.com/squaremo/amqp.node) library
+- My faithful coding pair partners:
+- [mocha[(http://visionmedia.github.io/mocha/)
+- [sinon.js](http://sinonjs.org/)
+- [gulpjs](http://gulpjs.com/)
+- [istanbul-js](http://gotwarlost.github.io/istanbul/)
+
 ## Dependencies
 
 - A running RabbitMQ server
 - NodeJS
 
-## Terminolgy
+## Overview
 
 RabbitMQ is a message broker.
 
 Messaging brokers receive messages from publishers (applications that publish them, also known as producers) and route them to consumers (applications that process them).
 
-NodeJS will act as both consumer and publisher.
+amqp-rpc-factory creates AMQP RPC consumers and publishers.
+
+Here's an image from the RabbitMQ website giving an overview of the RPC messaging process.
+
+In this context NodeJS is the blue circles, in between the NodeJS is TCP networking and the RabbitMQ server.
+
+[![RPC Overview](docs/images/python-six.png)](https://www.rabbitmq.com/tutorials/tutorial-six-python.html)
+
+## Features
+
+- Create an RPC consumer
+- Create an RPC producer (command line use opens and closes a TCP connection per message)
+- Create an RPC producer (server use opens a single TCP connection then opens and closes channels per message)
+- Consumer graceful error control and retry
+- Producer graceful error control and timeout
+
+## Install
+
+- `npm install amqp-rpc-factory`
 
 ## Usage
 
@@ -55,10 +84,11 @@ client.publish('message in a bottle')
   });
 ```
 
-Check out the [examples](examples) for more details of the basic and advanced features.
+Check out the [examples](examples) for more details of the basic, advanced, advanced-jsonrpc and server features.
 
 ## Consumer Options
 
+- The function to handle processing the RPC request
 - connectionRetryInterval (default: 500ms)
 - url (RabbitMQ server. default: 'localhost')
 - queue (default: 'node_rpc_queue')
@@ -77,6 +107,15 @@ Check out the [examples](examples) for more details of the basic and advanced fe
 
 ## Tests
 
+- git clone git@github.com:rudijs/amqp.node-rpc-factory.git
+- cd amqp.node-rpc-factory
+- npm install
 - gulp test
 - TEST_QUIET=true gulp test (stubs out the logging output on the console)
 - gulp lint
+
+## Development
+
+- gulp watch-test
+- TEST_QUIET=true watch-test
+- gulp watch-lint

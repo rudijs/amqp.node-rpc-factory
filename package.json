@@ -1,14 +1,20 @@
 {
   "name": "amqp-rpc-factory",
   "version": "0.0.1",
-  "description": "AMQP RPC Consumer and Producer Factory",
-  "main": "index.js",
-  "private": true,
-  "scripts": {
-    "test": "NODE_ENV=testquiet node_modules/mocha/bin/_mocha -R spec test/*.spec.js",
-    "test-coverage": "NODE_ENV=testquiet node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -x '*.spec.js' --root lib/ --dir test/coverage  -- 'test/*.spec.js'"
+  "description": "Nodejs AMQP RPC Consumer and Publisher Factory",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rudijs/amqp.node-rpc-factory.git"
   },
-  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Run 'gulp help' for task list\" && exit 0",
+    "coveralls": "NODE_ENV=testquiet node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -x '*.spec.js' --root lib/ --dir test/coverage  -- 'test/*.spec.js'"
+  },
+  "author": {
+    "name": "Rudi Starcevic",
+    "email": "ooly.me@gmail.com"
+  },
   "license": "MIT",
   "dependencies": {
     "amqplib": "^0.2.1",
