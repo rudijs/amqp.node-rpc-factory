@@ -65,7 +65,7 @@ var consumerOptions = {
   url: process.env.RABBITMQ_URL || 'localhost'
 };
 
-var consumer = require('rpc-consumer-factory').create(consumerOptions);
+var consumer = require('amqp-rpc-factory').consumer.create(consumerOptions);
 
 consumer.run();
 ```
@@ -73,7 +73,7 @@ consumer.run();
 *Publisher*
 
 ```
-var rpcClientFactory = require('rpc-publisher-factory');
+var rpcClientFactory = require('amqp-rpc-factory').publisher;
 
 var client = rpcClientFactory.create({
   standalone: true,
