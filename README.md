@@ -96,7 +96,7 @@ Check out the [examples](examples) for more details of the basic, advanced, adva
 
 ## Consumer Options
 
-- `processMessage`: The function to handle processing the RPC request
+- `processMessage`: The function to handle processing the RPC request. Can standard Javascript Function or return a fulfilled Promise.
 - `connectionRetryInterval`: default: 500ms
 - `url`: default: 'localhost'
 - `queue`: default: 'node_rpc_queue'
