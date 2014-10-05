@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.1.1 - 2014-10-05
+
+### Added
+- Package dependencies updated.
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Nothing.
+
+### Fixed
+- Publisher `Service Unavailable` response object property `status` changed to `code`
+
 ## 0.1.0 - 2014-09-29
 
 ### Added
