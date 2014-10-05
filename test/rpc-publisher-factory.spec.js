@@ -84,7 +84,7 @@ describe('RPC Client', function () {
     publisher.publish('publish a message')
       .catch(function publishError(err) {
         should.exist.err;
-        err.status.should.equal(503);
+        err.code.should.equal(503);
         err.message.should.equal('Service Unavailable');
       })
       .then(done, done);
@@ -240,7 +240,7 @@ describe('RPC Client', function () {
       .catch(function publishError(err) {
 
         // test user response
-        err.status.should.equal(503);
+        err.code.should.equal(503);
         err.message.should.equal('Service Unavailable');
 
         // test error logging
@@ -320,7 +320,7 @@ describe('RPC Client', function () {
       .catch(function publishError(err) {
 
         // test user response
-        err.status.should.equal(503);
+        err.code.should.equal(503);
         err.message.should.equal('Service Unavailable');
 
         // test error logging
