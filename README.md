@@ -99,6 +99,7 @@ Check out the [examples](examples) for more details of the basic, advanced, adva
 - `processMessage`: The function to handle processing the RPC request. Can standard Javascript Function or return a fulfilled Promise.
 - `connectionRetryInterval`: default: 500ms
 - `url`: default: 'localhost'
+- `socketOptions`: default empty Object
 - `queue`: default: 'node_rpc_queue'
 - `logInfo`: Log non-error messages, default console.info - Can pass in custom logger (example Bunyan)
 - `logError`: Log error messages, default console.warn - Can pass in custom logger (example Bunyan)
@@ -109,6 +110,7 @@ Check out the [examples](examples) for more details of the basic, advanced, adva
 - `replyTimeOutInterval`: default: 3000 - publisher timeout waiting for replies
 - `standalone`: default: false - Close the connection or channel on finish. If used in a server like ExpressJS or KoaJS needs to be true
 - `url`: default: 'localhost'
+- `socketOptions`: default empty Object
 - `queue`: default: 'node_rpc_queue'
 - `logInfo`: Log non-error messages, default console.info - Can pass in custom logger (example Bunyan)
 - `logError`: Log error messages, default console.warn - Can pass in custom logger (example Bunyan)

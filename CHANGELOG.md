@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.2.0 - 2014-10-25
+
+### Added
+- Package dependencies updated.
+- socketOptions configuration option for .connect()
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Nothing.
+
+### Fixed
+- Nothing.
+
 ## 0.1.1 - 2014-10-05
 
 ### Added
