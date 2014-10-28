@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.2.1 - 2014-10-28
+
+### Added
+- RPC Publisher Service Unavailable updated to match JSON-RPC spec with properties code, message and data.
+- code: HTTP Status code
+- message: Application/machine message
+- data: Human readable message
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Nothing.
+
+### Fixed
+- Nothing.
+
 ## 0.2.0 - 2014-10-25
 
 ### Added
