@@ -86,7 +86,7 @@ describe('RPC Client', function () {
         should.exist.err;
         err.code.should.equal(503);
         err.message.should.equal('service_unavailable');
-        err.data.should.equal('Service Unavailable');
+        err.data.should.equal('Service Unavailable.');
       })
       .then(done, done);
 
@@ -243,7 +243,7 @@ describe('RPC Client', function () {
         // test user response
         err.code.should.equal(503);
         err.message.should.equal('service_unavailable');
-        err.data.should.equal('Service Unavailable');
+        err.data.should.equal('Service Unavailable.');
 
         // test error logging
         sinon.assert.calledOnce(spy);
@@ -324,7 +324,7 @@ describe('RPC Client', function () {
         // test user response
         err.code.should.equal(503);
         err.message.should.equal('service_unavailable');
-        err.data.should.equal('Service Unavailable');
+        err.data.should.equal('Service Unavailable.');
 
         // test error logging
         sinon.assert.calledOnce(spy);
