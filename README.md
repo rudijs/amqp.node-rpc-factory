@@ -98,22 +98,25 @@ Check out the [examples](examples) for more details of the basic, advanced, adva
 
 - `processMessage`: The function to handle processing the RPC request. Can standard Javascript Function or return a fulfilled Promise.
 - `connectionRetryInterval`: default: 500ms
-- `url`: default: 'localhost'
-- `socketOptions`: default empty Object
+- `url`: default: 'localhost' - [A valid amqp URI](https://www.rabbitmq.com/uri-spec.html).
+- `socketOptions`: default empty Object - The socket options will be passed to the socket library (net or tls). The socket options may also include the key noDelay, with a boolean value. If the value is true, this sets TCP_NODELAY on the underlying socket.
 - `queue`: default: 'node_rpc_queue'
+- `queueOptions` : default: ````{durable: true}```` - AMQP options passed to the queue. You may find ````autoDelete: true```` useful in place of durable if you wish the request queues cleaned up automatically.
+- `prefetch` : default : 1 - Set the prefetch count for this channel. The count given is the maximum number of messages sent over the channel that can be awaiting acknowledgement. To consume multiple requests in the same process, in parallel, this must be set to greater than 1.
 - `logInfo`: Log non-error messages, default console.info - Can pass in custom logger (example Bunyan)
 - `logError`: Log error messages, default console.warn - Can pass in custom logger (example Bunyan)
 
 ## Publisher Options
 
 - `debugLevel`: default: 0 - level 1 will log sent messages, level 2 will also log received messages
-- `replyTimeOutInterval`: default: 3000 - publisher timeout waiting for replies
-- `standalone`: default: false - Close the connection or channel on finish. If used in a server like ExpressJS or KoaJS needs to be true
-- `url`: default: 'localhost'
-- `socketOptions`: default empty Object
+- `replyTimeOutInterval`: default: 3000 milliseconds - publisher timeout waiting for replies
+- `standalone`: default: false - If true, close the connection on finish, otherwise just close the channel.
+- `url`: default: 'localhost' - [A valid amqp URI](https://www.rabbitmq.com/uri-spec.html).
+- `socketOptions`: default empty Object - The socket options will be passed to the socket library (net or tls). The socket options may also include the key noDelay, with a boolean value. If the value is true, this sets TCP_NODELAY on the underlying socket.
 - `queue`: default: 'node_rpc_queue'
-- `logInfo`: Log non-error messages, default console.info - Can pass in custom logger (example Bunyan)
-- `logError`: Log error messages, default console.warn - Can pass in custom logger (example Bunyan)
+- `queueOptions` : default: ````{exclusive: true}```` - AMQP options passed to the queue. You may find ````autoDelete: true```` useful in addition to exclusive if you wish the response queues cleaned up automatically.
+- `logInfo`: Log non-error messages, default console.log - Can pass in custom logger (example Bunyan)
+- `logError`: Log error messages, default console.log - Can pass in custom logger (example Bunyan)
 
 ## Tests
 
