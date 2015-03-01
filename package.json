@@ -1,6 +1,6 @@
 {
   "name": "amqp-rpc-factory",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Node.js AMQP RPC Consumer and Publisher Factory",
   "repository": {
     "type": "git",
@@ -15,6 +15,12 @@
     "name": "Rudi Starcevic",
     "email": "ooly.me@gmail.com"
   },
+  "contributors": [
+    {
+      "name": "robraux",
+      "email": "robraux@gmail.com"
+    }
+  ],
   "keywords": [
     "AMQP",
     "AMQP 0-9-1",

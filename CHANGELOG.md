@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.2.3 - 2015-03-01
+
+### Added
+- Dependency updates
+- Refactor to allow for multiple instances of consumer and publisher to exist
+- Added additional options to support configuration, specifically queueOptions, prefetch values, and URI handling.
+- Update README.md to provide additional options and more detailed explanation of them.
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Nothing.
+
+### Fixed
+- Nothing.
+
 ## 0.2.2 - 2014-10-28
 
 ### Added
