@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.2.4 - 2015-03-08
+
+### Added
+- Optimize URL protocol string check.
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Nothing.
+
+### Fixed
+- Multiple idle connections created in non-standalone mode when RPC Reply Timeouts occur.
+
 ## 0.2.3 - 2015-03-01
 
 ### Added
