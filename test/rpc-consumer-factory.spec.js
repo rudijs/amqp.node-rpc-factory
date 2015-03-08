@@ -314,7 +314,9 @@ describe('RPC Consumer', function () {
 
       sinon.stub(amqp, 'connect').returns(connectStub);
 
-      var consumer = rpcConsumerFactory.create();
+      var consumer = rpcConsumerFactory.create({
+        url: 'amqp://localhost'
+      });
 
       consumer.run();
 

@@ -157,7 +157,8 @@ describe('RPC Client', function () {
 
     var publisher = rpcPublisherFactory.create({
       debugLevel: 2,
-      standalone: true
+      standalone: true,
+      url: 'amqps://localhost'
     });
 
     publisher.publish(messageSent)
