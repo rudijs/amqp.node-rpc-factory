@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.2.5 - 2015-03-08
+
+### Added
+- Nothing.
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Nothing.
+
+### Fixed
+- Removed development only debugging console log statement.
+
 ## 0.2.4 - 2015-03-08
 
 ### Added
