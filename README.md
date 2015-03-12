@@ -114,7 +114,7 @@ Check out the [examples](examples) for more details of the basic, advanced, adva
 - `url`: default: 'localhost' - [A valid amqp URI](https://www.rabbitmq.com/uri-spec.html).
 - `socketOptions`: default empty Object - The socket options will be passed to the socket library (net or tls). The socket options may also include the key noDelay, with a boolean value. If the value is true, this sets TCP_NODELAY on the underlying socket.
 - `queue`: default: 'node_rpc_queue'
-- `queueOptions` : default: ````{exclusive: true}```` - AMQP options passed to the queue. You may find ````autoDelete: true```` useful in addition to exclusive if you wish the response queues cleaned up automatically.
+- `queueOptions` : default: ````{exclusive: true, autoDelete: true}```` - AMQP options passed to the queue.
 - `logInfo`: Log non-error messages, default console.log - Can pass in custom logger (example Bunyan)
 - `logError`: Log error messages, default console.log - Can pass in custom logger (example Bunyan)
 
