@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.2.6 - 2015-03-12
+
+### Added
+- Set default autoDelete to true for rpc publisher queues.
+- Development dependency updates.
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Nothing.
+
+### Fixed
+- Prevent build up of empty idle queues.
+
 ## 0.2.5 - 2015-03-08
 
 ### Added
