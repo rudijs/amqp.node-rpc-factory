@@ -45,11 +45,11 @@ describe('RPC Client', function () {
     done();
   });
 
-  it('should handle emitted AMQP connection errors', function(done) {
+  it('should handle emitted AMQP connection errors', function (done) {
 
     var spy = sinon.spy();
 
-    sinon.stub(domain, 'create', function() {
+    sinon.stub(domain, 'create', function () {
       return new EventEmitter();
     });
 
@@ -300,6 +300,8 @@ describe('RPC Client', function () {
         };
       },
 
+      on: sinon.spy(),
+
       close: sinon.spy()
     };
 
@@ -315,7 +317,7 @@ describe('RPC Client', function () {
       debugLevel: 2
     });
 
-    publisher.standalone.should.be.false;
+    //publisher.standalone.should.be.true;
 
     var spy = sinon.spy(publisher, 'logError');
 
@@ -337,6 +339,66 @@ describe('RPC Client', function () {
 
       })
       .then(done, done);
+
+  });
+
+  it('should handle emitted connection error CONNECTION_FORCED - broker forced connection closure with reason shutdown', function (done) {
+
+    var channelStub = {
+      assertQueue: function () {
+        return {
+          then: function (callback) {
+            callback({queue: uniqueAmqpPrivateReplyQueue});
+            return assertQueueThenStub;
+          }
+        };
+      },
+
+      consume: function (queue, callback, options) {
+        queue.should.equal(uniqueAmqpPrivateReplyQueue);
+        (typeof callback).should.equal('function');
+        options.noAck.should.be.true;
+      },
+
+      sendToQueue: function (replyTo, content, options) {
+        replyTo.should.equal('node_rpc_queue');
+        content.toString().should.equal(messageSent);
+        options.replyTo.should.equal(uniqueAmqpPrivateReplyQueue);
+      },
+
+      close: sinon.spy()
+
+    };
+
+    var createChannelStub = {
+      createChannel: function () {
+        return {
+          then: function (createChannelSuccess) {
+            return createChannelSuccess(channelStub);
+          }
+        };
+      },
+
+      on: function (event, cb) {
+        cb(new Error('CONNECTION_FORCED - broker forced connection closure with reason \'shutdown\''));
+      }
+    };
+
+    var connectStub = {
+      then: function (getConnectionSuccess) {
+        return getConnectionSuccess(createChannelStub);
+      }
+    };
+
+    sinon.stub(amqp, 'connect').returns(connectStub);
+
+    var publisher = rpcPublisherFactory.create({
+      debugLevel: 2
+    });
+
+    publisher.publish(messageSent);
+
+    done();
 
   });
 
