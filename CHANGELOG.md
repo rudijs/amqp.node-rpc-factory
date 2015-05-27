@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.2.9 - 2015-05-27
+
+### Added
+- Dependency updates.
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Promise deferred anti pattern.
+
+### Fixed
+- Nothing.
+
 ## 0.2.7 - 2015-03-13
 
 ### Added
