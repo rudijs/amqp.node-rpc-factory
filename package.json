@@ -30,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "amqplib": "^0.3.2",
-    "lodash": "^3.9.1",
+    "lodash": "^3.9.3",
     "q": "^1.4.1",
     "uuid": "^2.0.1"
   },
@@ -40,11 +40,11 @@
     "coveralls": "^2.11.2",
     "express": "^4.12.4",
     "gulp": "^3.8.9",
-    "gulp-jshint": "^1.10.0",
+    "gulp-jshint": "^1.11.0",
     "gulp-task-listing": "^1.0.0",
     "istanbul": "^0.3.14",
-    "koa": "^0.20.0",
-    "koa-router": "^4.3.2",
+    "koa": "^0.21.0",
+    "koa-router": "^5.0.1",
     "mocha": "^2.2.5",
     "sinon": "^1.14.1"
   }

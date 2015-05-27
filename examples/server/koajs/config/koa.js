@@ -1,13 +1,11 @@
 'use strict';
 
-var router = require('koa-router'),
+var router = require('koa-router')(),
   controller = require('../controllers/controller-upcase');
 
 module.exports = function (app) {
 
-  app.use(router(app));
-
-  app.get('/api/upcase/:text', function *() {
+  router.get('/api/upcase/:text', function *() {
     try {
       var text = yield controller.upcase(this.params.text);
       this.body = text;
@@ -16,5 +14,9 @@ module.exports = function (app) {
       this.body = e;
     }
   });
+
+  app
+    .use(router.routes())
+    .use(router.allowedMethods());
 
 };
