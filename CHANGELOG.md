@@ -1,6 +1,20 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.2.10 - 2015-07-28
+
+### Added
+- Dependency updates.
+
+### Deprecated
+- Nothing.
+
+### Removed
+- Nothing.
+
+### Fixed
+- Nothing.
+
 ## 0.2.9 - 2015-05-27
 
 ### Added
