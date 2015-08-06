@@ -30,7 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "amqplib": "^0.3.2",
-    "lodash": "^3.10.0",
+    "lodash": "^3.10.1",
     "q": "^1.4.1",
     "uuid": "^2.0.1"
   },
@@ -38,7 +38,7 @@
     "bunyan": "^1.4.0",
     "chai": "^3.2.0",
     "coveralls": "^2.11.3",
-    "express": "^4.13.1",
+    "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
     "gulp-task-listing": "^1.0.1",
