@@ -13,7 +13,7 @@ All notable changes to this project will be documented in this file.
 - Nothing.
 
 ### Fixed
-- Nothing.
+- Remove Promise Deferred Anti-Pattern from server examples.
 
 ## 1.0.0 - 2015-08-06
 
