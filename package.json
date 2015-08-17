@@ -1,6 +1,6 @@
 {
   "name": "amqp-rpc-factory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node.js AMQP RPC Consumer and Publisher Factory",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
   "devDependencies": {
     "bunyan": "^1.4.0",
     "chai": "^3.2.0",
-    "coveralls": "^2.11.3",
+    "coveralls": "^2.11.4",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
