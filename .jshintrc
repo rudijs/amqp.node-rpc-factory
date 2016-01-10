@@ -2,10 +2,8 @@
   "node": true,
   "browser": true,
   "esnext": true,
-
   "indent": 2,
   "laxcomma": true,
-
   "strict": true,
   "eqeqeq": true,
   "immed": true,
@@ -19,7 +17,6 @@
   "unused": true,
   "trailing": true,
   "expr": true,
-
   "globals": {
     "angular": false,
     "_": true,
@@ -38,7 +35,5 @@
     "jasmine": true,
     "google": true,
     "sinon": true
-
   }
-
 }
