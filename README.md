@@ -105,7 +105,6 @@ Check out the [examples](examples) for more details of the basic, advanced, adva
 - `prefetch` : default : 1 - Set the prefetch count for this channel. The count given is the maximum number of messages sent over the channel that can be awaiting acknowledgement. To consume multiple requests in the same process, in parallel, this must be set to greater than 1.
 - `logInfo`: Log non-error messages, default console.info - Can pass in custom logger (example Bunyan)
 - `logError`: Log error messages, default console.warn - Can pass in custom logger (example Bunyan)
-- `connection`: default: auto connect by `url` and `socketOptions` - [amqplib](https://www.npmjs.com/package/amqplib) connection, reconnect should be handled manually in this case via  `initConsumer(connection)`
 
 ## Publisher Options
 
@@ -118,7 +117,6 @@ Check out the [examples](examples) for more details of the basic, advanced, adva
 - `queueOptions` : default: ````{exclusive: true, autoDelete: true}```` - AMQP options passed to the queue.
 - `logInfo`: Log non-error messages, default console.log - Can pass in custom logger (example Bunyan)
 - `logError`: Log error messages, default console.log - Can pass in custom logger (example Bunyan)
-- `connection`: default: auto connect by `url` and `socketOptions` - [amqplib](https://www.npmjs.com/package/amqplib) connection
 
 ## Tests
 
